@@ -17,6 +17,7 @@
 		991FD1712A14068700FB5726 /* IOSChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1702A14068700FB5726 /* IOSChallengeUITests.swift */; };
 		991FD1732A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1722A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift */; };
 		991FD1802A140D0E00FB5726 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 991FD17F2A140D0D00FB5726 /* README.md */; };
+		991FD18E2A144AAC00FB5726 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD18D2A144AAC00FB5726 /* TableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		991FD1702A14068700FB5726 /* IOSChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeUITests.swift; sourceTree = "<group>"; };
 		991FD1722A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		991FD17F2A140D0D00FB5726 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		991FD18D2A144AAC00FB5726 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				991FD1502A14068600FB5726 /* HomeViewController.swift */,
+				991FD18D2A144AAC00FB5726 /* TableViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				991FD1512A14068600FB5726 /* HomeViewController.swift in Sources */,
+				991FD18E2A144AAC00FB5726 /* TableViewModel.swift in Sources */,
 				991FD14D2A14068600FB5726 /* AppDelegate.swift in Sources */,
 				991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */,
 				991FD1572A14068600FB5726 /* IOSChallenge.xcdatamodeld in Sources */,

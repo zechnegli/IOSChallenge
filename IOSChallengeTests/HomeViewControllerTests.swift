@@ -10,7 +10,8 @@ import XCTest
 
 final class HomeViewControllerTests: XCTestCase {
     func makeSUT() -> HomeViewController {
-        let sut = HomeViewController()
+        let viewModel = TableViewModel()
+        let sut = HomeViewController(with: viewModel)
         sut.loadViewIfNeeded()
         return sut
     }
@@ -43,6 +44,7 @@ final class HomeViewControllerTests: XCTestCase {
         let sut = makeSUT()
         XCTAssertTrue(sut.tableView!.delegate!.isEqual(sut))
     }
+    
 
     
     func testPerformanceExample() throws {
