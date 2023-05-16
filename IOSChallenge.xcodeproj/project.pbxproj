@@ -17,6 +17,7 @@
 		991FD1672A14068700FB5726 /* IOSChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1662A14068700FB5726 /* IOSChallengeTests.swift */; };
 		991FD1712A14068700FB5726 /* IOSChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1702A14068700FB5726 /* IOSChallengeUITests.swift */; };
 		991FD1732A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1722A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift */; };
+		991FD1802A140D0E00FB5726 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 991FD17F2A140D0D00FB5726 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		991FD16C2A14068700FB5726 /* IOSChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		991FD1702A14068700FB5726 /* IOSChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeUITests.swift; sourceTree = "<group>"; };
 		991FD1722A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		991FD17F2A140D0D00FB5726 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				991FD15A2A14068700FB5726 /* LaunchScreen.storyboard */,
 				991FD15D2A14068700FB5726 /* Info.plist */,
 				991FD1552A14068600FB5726 /* IOSChallenge.xcdatamodeld */,
+				991FD17F2A140D0D00FB5726 /* README.md */,
 			);
 			path = IOSChallenge;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				991FD15C2A14068700FB5726 /* LaunchScreen.storyboard in Resources */,
 				991FD1592A14068700FB5726 /* Assets.xcassets in Resources */,
+				991FD1802A140D0E00FB5726 /* README.md in Resources */,
 				991FD1542A14068600FB5726 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
