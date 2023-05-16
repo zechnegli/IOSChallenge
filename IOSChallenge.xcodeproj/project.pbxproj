@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		991FD14D2A14068600FB5726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD14C2A14068600FB5726 /* AppDelegate.swift */; };
 		991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD14E2A14068600FB5726 /* SceneDelegate.swift */; };
-		991FD1512A14068600FB5726 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1502A14068600FB5726 /* ViewController.swift */; };
+		991FD1512A14068600FB5726 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1502A14068600FB5726 /* HomeViewController.swift */; };
 		991FD1572A14068600FB5726 /* IOSChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1552A14068600FB5726 /* IOSChallenge.xcdatamodeld */; };
 		991FD1592A14068700FB5726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991FD1582A14068700FB5726 /* Assets.xcassets */; };
 		991FD15C2A14068700FB5726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 991FD15A2A14068700FB5726 /* LaunchScreen.storyboard */; };
-		991FD1672A14068700FB5726 /* IOSChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1662A14068700FB5726 /* IOSChallengeTests.swift */; };
+		991FD1672A14068700FB5726 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1662A14068700FB5726 /* HomeViewControllerTests.swift */; };
 		991FD1712A14068700FB5726 /* IOSChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1702A14068700FB5726 /* IOSChallengeUITests.swift */; };
 		991FD1732A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1722A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift */; };
 		991FD1802A140D0E00FB5726 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 991FD17F2A140D0D00FB5726 /* README.md */; };
@@ -40,13 +40,13 @@
 		991FD1492A14068600FB5726 /* IOSChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		991FD14C2A14068600FB5726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		991FD14E2A14068600FB5726 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		991FD1502A14068600FB5726 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		991FD1502A14068600FB5726 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		991FD1562A14068600FB5726 /* IOSChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IOSChallenge.xcdatamodel; sourceTree = "<group>"; };
 		991FD1582A14068700FB5726 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		991FD15B2A14068700FB5726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		991FD15D2A14068700FB5726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		991FD1622A14068700FB5726 /* IOSChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		991FD1662A14068700FB5726 /* IOSChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeTests.swift; sourceTree = "<group>"; };
+		991FD1662A14068700FB5726 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		991FD16C2A14068700FB5726 /* IOSChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		991FD1702A14068700FB5726 /* IOSChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeUITests.swift; sourceTree = "<group>"; };
 		991FD1722A14068700FB5726 /* IOSChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				991FD18A2A1437DA00FB5726 /* UserStory */,
+				991FD18B2A14390C00FB5726 /* Coordinator */,
 				991FD1852A14377800FB5726 /* UI */,
 				991FD1832A14376200FB5726 /* Service */,
 				991FD1842A14376A00FB5726 /* Networking */,
@@ -120,7 +121,7 @@
 		991FD1652A14068700FB5726 /* IOSChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				991FD1662A14068700FB5726 /* IOSChallengeTests.swift */,
+				991FD1662A14068700FB5726 /* HomeViewControllerTests.swift */,
 			);
 			path = IOSChallengeTests;
 			sourceTree = "<group>";
@@ -205,9 +206,24 @@
 		991FD18A2A1437DA00FB5726 /* UserStory */ = {
 			isa = PBXGroup;
 			children = (
-				991FD1502A14068600FB5726 /* ViewController.swift */,
+				991FD18C2A14392900FB5726 /* Home */,
 			);
 			path = UserStory;
+			sourceTree = "<group>";
+		};
+		991FD18B2A14390C00FB5726 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		991FD18C2A14392900FB5726 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				991FD1502A14068600FB5726 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				991FD1512A14068600FB5726 /* ViewController.swift in Sources */,
+				991FD1512A14068600FB5726 /* HomeViewController.swift in Sources */,
 				991FD14D2A14068600FB5726 /* AppDelegate.swift in Sources */,
 				991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */,
 				991FD1572A14068600FB5726 /* IOSChallenge.xcdatamodeld in Sources */,
@@ -352,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				991FD1672A14068700FB5726 /* IOSChallengeTests.swift in Sources */,
+				991FD1672A14068700FB5726 /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
