@@ -1,7 +1,9 @@
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
+[github]
+    user = zechengli1997@gmail.com
+    token = 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
 ## User settings
 xcuserdata/
 
