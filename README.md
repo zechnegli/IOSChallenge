@@ -41,5 +41,7 @@ Cache
 Anything to do in the future 
 Localizaiton 
 UI improvements
+pagination
+since the API doesn't provide pagination support for querying a list of meal and the list is reasonably small, fetching it all at once should not be a problem.
 
 appverion - 1

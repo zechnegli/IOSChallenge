@@ -6,11 +6,30 @@
 //
 
 import Foundation
+
+protocol URLSessionProtocol {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol
+}
+
+protocol URLSessionDataTaskProtocol {
+    func resume()
+}
+
+extension URLSession: URLSessionProtocol {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
+        return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask
+    }
+}
+
+extension URLSessionDataTask: URLSessionDataTaskProtocol {}
+
 protocol HttpClientProtocol {
     func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable
 }
 
 struct HttpClient: HttpClientProtocol {
+    var urlSession: URLSessionProtocol = URLSession.shared
+    
     /**
      Sends a network request to the specified URL with query parameters and HTTP method.
      This method supports retry mechanism for failed requests.
@@ -29,7 +48,8 @@ struct HttpClient: HttpClientProtocol {
         var currentRetry = 0
         
         func performRequest() {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            let request = URLRequest(url: url)
+            let task = urlSession.dataTask(with: request) { data, response, error in
                 if let error = error {
                     if currentRetry < maxRetries {
                         currentRetry += 1
