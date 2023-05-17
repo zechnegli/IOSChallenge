@@ -24,7 +24,7 @@ extension URLSession: URLSessionProtocol {
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
 
 protocol HttpClientProtocol {
-    func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable
+    func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<T, Error>) -> Void) where T: Decodable, T: Encodable
 }
 
 struct HttpClient: HttpClientProtocol {
@@ -44,7 +44,7 @@ struct HttpClient: HttpClientProtocol {
 
      - Throws: An error of type `CustomError` if there is a failure during the request.
      */
-    func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable {
+    func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<T, Error>) -> Void) where T: Decodable, T: Encodable {
         var currentRetry = 0
         
         func performRequest() {
@@ -82,7 +82,7 @@ struct HttpClient: HttpClientProtocol {
                 }
                 
                 do {
-                    let decodedData = try JSONDecoder().decode([T].self, from: data)
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(decodedData))
                 } catch {
                     completion(.failure(error))

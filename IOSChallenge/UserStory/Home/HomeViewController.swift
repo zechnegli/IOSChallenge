@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         configureHomeViews()
+        viewModel.delegate = self
+        viewModel.fetchMeals()
     }
     
     private func configureHomeViews() {
@@ -33,10 +35,11 @@ class HomeViewController: UIViewController {
     
     private func setUpTableView() {
         self.tableView = UITableView()
-        tableView!.rowHeight = 100
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.translatesAutoresizingMaskIntoConstraints = false
+        tableView!.prefetchDataSource = self
+        self.tableView!.register(MealTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.mealTableViewCell)
         self.view.addSubview(tableView!)
         NSLayoutConstraint.activate([
             tableView!.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -47,13 +50,31 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.meals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.mealTableViewCell, for: indexPath) as! MealTableViewCell
+        cell.mealNameLabel.text = viewModel.meals[indexPath.row].mealName
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+//            viewModel.downloadImage(at: indexPath, url: viewModel.images[indexPath.row].urls.thumb, completion: nil)
+        }
+    }
+}
+
+extension HomeViewController: TableViewModelDelegate {
+    func didLoadMeals() {
+        self.tableView?.reloadData()
     }
 }
 

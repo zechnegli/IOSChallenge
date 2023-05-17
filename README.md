@@ -17,6 +17,7 @@ Since this is a small App, our mobile client only need to talk with backend serv
 
 High Level client Design 
 To achieve modular design, I used layers to organize modules so that it will be easier to test and reuse
+The benefit will be I can easily swap the UI layer from UIkit to SwiftUI```
 Those layers are abstracted by protocol and use DI (Dependency Injection) to manage dependencies
 
 
@@ -26,7 +27,8 @@ To adhere to the software design principle: Separation of concern, I decided to 
   
 UI Design 
 Storyboards have some benefits when we have tight deadlines for the project. However, it is aslo hard to maintain and build time will also increase.
-So in this project, I created all layouts programmatically
+swift UI: backward support 
+So in this project, I created all layouts programmatically with UIKit
  
 Navigation Mechinism 
 I used coordinator pattern to handle navigation and flow between viewcontrollers. 

@@ -12,7 +12,7 @@ enum MealCategory: String {
 }
 
 protocol MealServiceProtocol {
-    func getMeals(category: MealCategory, completion: @escaping (Result<[Meal], Error>) -> Void)
+    func getMeals(category: MealCategory, completion: @escaping (Result<MealResponse, Error>) -> Void)
     func getMealDetail(mealID: Int, completion: @escaping (Result<MealDetail, Error>) -> Void)
 }
 
@@ -23,14 +23,14 @@ struct MealService: MealServiceProtocol {
         self.httpClient = httpClient
     }
     
-    func getMeals(category: MealCategory, completion: @escaping (Result<[Meal], Error>) -> Void) {
+    func getMeals(category: MealCategory, completion: @escaping (Result<MealResponse, Error>) -> Void) {
         let endpoint = MealDBEndpoint.filterByCategory(category: category.rawValue)
         guard let url = endpoint.url else {
             completion(.failure(CustomError.urlParseError("URL parse error")))
             return
         }
         
-        httpClient.sendRequest(url: url, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<[Meal], Error>) in
+        httpClient.sendRequest(url: url, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<MealResponse, Error>) in
             completion(result)
         }
     }

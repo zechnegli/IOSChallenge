@@ -10,7 +10,7 @@ import XCTest
 
 final class HomeViewControllerTests: XCTestCase {
     func makeSUT() -> HomeViewController {
-        let viewModel = TableViewModel()
+        let viewModel = MealTableViewModel()
         let sut = HomeViewController(with: viewModel)
         sut.loadViewIfNeeded()
         return sut
