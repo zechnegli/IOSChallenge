@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailViewController: BaseViewController {
-    
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = DetailViewConstants.imageViewContentMode

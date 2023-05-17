@@ -287,8 +287,8 @@
 		991FD18A2A1437DA00FB5726 /* UserStory */ = {
 			isa = PBXGroup;
 			children = (
-				991FD1B12A15805900FB5726 /* Detail */,
 				991FD18C2A14392900FB5726 /* Home */,
+				991FD1B12A15805900FB5726 /* Detail */,
 			);
 			path = UserStory;
 			sourceTree = "<group>";

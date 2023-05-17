@@ -10,6 +10,7 @@ import UIKit
 
 protocol ViewControllerFactoryProtocol {
     func createHomeViewController() -> HomeViewController
+    func createDetailViewController(with mealID: String?) -> DetailViewController
 }
 
 struct ViewControllerFactory: ViewControllerFactoryProtocol {
@@ -21,5 +22,11 @@ struct ViewControllerFactory: ViewControllerFactoryProtocol {
         return viewController
     }
     
+    func createDetailViewController(with mealID: String?) -> DetailViewController {
+        let viewModel = DetailViewModel()
+        viewModel.mealID = mealID
+        let viewController = DetailViewController(with: viewModel)
+        return viewController
+    }
 }
 

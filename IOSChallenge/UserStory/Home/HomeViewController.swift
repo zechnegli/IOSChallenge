@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate: AnyObject {
+    func homeViewControllerDidSelectCell(with mealID: String?)
+}
+
 class HomeViewController: BaseViewController {
     private(set) var tableView: UITableView?
     private(set) var viewModel: TableViewModelProtocol
+    weak var delegate: HomeViewControllerDelegate?
     
     init(with viewModel: TableViewModelProtocol) {
         self.viewModel = viewModel
@@ -24,6 +29,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationItem.title = "Dessert"
         configureHomeViews()
         viewModel.delegate = self
         viewModel.fetchMeals()
@@ -90,6 +96,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.homeViewControllerDidSelectCell(with: viewModel.meals[indexPath.row].mealID)
 //        coordinator?.goToDetailVC(viewModel.images[indexPath.row].urls.raw, viewModel.images[indexPath.row].description)
     }
 }

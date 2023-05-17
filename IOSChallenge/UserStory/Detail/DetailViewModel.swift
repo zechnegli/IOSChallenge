@@ -14,6 +14,7 @@ protocol DetailViewModelProtocol {
     var instructions: String? {get}
     var ingredients: [String?] {get}
     var measures: [String?] {get}
+    var mealID: String? {get}
 }
 
 class DetailViewModel: DetailViewModelProtocol {
@@ -22,5 +23,6 @@ class DetailViewModel: DetailViewModelProtocol {
     var instructions: String?
     var ingredients: [String?] = []
     var measures: [String?] = []
+    var mealID: String?
     
 }
