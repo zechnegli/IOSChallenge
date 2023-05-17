@@ -21,6 +21,11 @@
 		991FD1912A144FB200FB5726 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1902A144FB200FB5726 /* Meal.swift */; };
 		991FD1932A144FD100FB5726 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1922A144FD100FB5726 /* MealDetail.swift */; };
 		991FD1962A14508800FB5726 /* MealWithDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1952A14508800FB5726 /* MealWithDetail.swift */; };
+		991FD1982A1458C400FB5726 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1972A1458C400FB5726 /* CustomError.swift */; };
+		991FD19A2A14596100FB5726 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1992A14596100FB5726 /* HttpClient.swift */; };
+		991FD19C2A145A5C00FB5726 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19B2A145A5C00FB5726 /* HttpMethod.swift */; };
+		991FD19E2A145A6E00FB5726 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */; };
+		991FD1A02A145A7A00FB5726 /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19F2A145A7A00FB5726 /* CellIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		991FD1902A144FB200FB5726 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		991FD1922A144FD100FB5726 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
 		991FD1952A14508800FB5726 /* MealWithDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealWithDetail.swift; sourceTree = "<group>"; };
+		991FD1972A1458C400FB5726 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		991FD1992A14596100FB5726 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		991FD19B2A145A5C00FB5726 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		991FD19F2A145A7A00FB5726 /* CellIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +185,7 @@
 		991FD1842A14376A00FB5726 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1992A14596100FB5726 /* HttpClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -196,6 +207,9 @@
 		991FD1872A14378F00FB5726 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */,
+				991FD19F2A145A7A00FB5726 /* CellIdentifiers.swift */,
+				991FD19B2A145A5C00FB5726 /* HttpMethod.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -210,6 +224,7 @@
 		991FD1892A1437C900FB5726 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1972A1458C400FB5726 /* CustomError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -372,11 +387,16 @@
 				991FD1512A14068600FB5726 /* HomeViewController.swift in Sources */,
 				991FD18E2A144AAC00FB5726 /* TableViewModel.swift in Sources */,
 				991FD14D2A14068600FB5726 /* AppDelegate.swift in Sources */,
+				991FD19A2A14596100FB5726 /* HttpClient.swift in Sources */,
+				991FD19C2A145A5C00FB5726 /* HttpMethod.swift in Sources */,
 				991FD1932A144FD100FB5726 /* MealDetail.swift in Sources */,
 				991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */,
+				991FD19E2A145A6E00FB5726 /* APIEndpoint.swift in Sources */,
 				991FD1962A14508800FB5726 /* MealWithDetail.swift in Sources */,
+				991FD1A02A145A7A00FB5726 /* CellIdentifiers.swift in Sources */,
 				991FD1912A144FB200FB5726 /* Meal.swift in Sources */,
 				991FD1572A14068600FB5726 /* IOSChallenge.xcdatamodeld in Sources */,
+				991FD1982A1458C400FB5726 /* CustomError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
