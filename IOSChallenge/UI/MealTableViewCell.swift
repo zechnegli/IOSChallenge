@@ -31,6 +31,8 @@ class MealTableViewCell: BaseTableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    var indexPath: IndexPath?
+    var cancelTask: ((IndexPath?) -> Void)?
     
     override func setupLayout() {
         contentView.addSubview(stackView)
@@ -42,6 +44,14 @@ class MealTableViewCell: BaseTableViewCell {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -MealTableViewCellConstants.horizontalPadding),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -MealTableViewCellConstants.verticalPadding)
         ])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        mealThumbImageView.image = nil
+        cancelTask?(indexPath)
+        cancelTask = nil
+        indexPath = nil
     }
 }
 

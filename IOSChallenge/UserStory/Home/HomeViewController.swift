@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     private(set) var tableView: UITableView?
     private(set) var viewModel: TableViewModelProtocol
     
@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         self.tableView = UITableView()
         tableView!.delegate = self
         tableView!.dataSource = self
+        tableView!.rowHeight = 100
         tableView!.translatesAutoresizingMaskIntoConstraints = false
         tableView!.prefetchDataSource = self
         self.tableView!.register(MealTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.mealTableViewCell)
@@ -58,21 +59,45 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.mealTableViewCell, for: indexPath) as! MealTableViewCell
         cell.mealNameLabel.text = viewModel.meals[indexPath.row].mealName
+        cell.indexPath = indexPath
+        cell.cancelTask = { [weak self] cellindex in
+            guard let cellindex else {
+                return
+            }
+            self?.viewModel.cancelDownloadTask(at: cellindex)
+            self?.viewModel.removeDownloadTask(at: cellindex)
+            self?.viewModel.removeDownloadImage(at: cellindex)
+            
+        }
+        cell.mealThumbImageView.image = viewModel.getDownloadImage(at: indexPath)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-//            viewModel.downloadImage(at: indexPath, url: viewModel.images[indexPath.row].urls.thumb, completion: nil)
+            viewModel.downloadThumbImage(at: indexPath, url: viewModel.meals[indexPath.row].mealThumbURL, completion: nil)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if viewModel.getDownloadImage(at: indexPath) != nil || viewModel.getDownloadTask(at: indexPath) != nil {
+            return
+        }
+        viewModel.downloadThumbImage(at: indexPath, url: viewModel.meals[indexPath.row].mealThumbURL) {image in
+            (cell as! MealTableViewCell).mealThumbImageView.image = image
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        coordinator?.goToDetailVC(viewModel.images[indexPath.row].urls.raw, viewModel.images[indexPath.row].description)
     }
 }
 
 extension HomeViewController: TableViewModelDelegate {
+    func showError(title: String, message: String) {
+        self.showAlert(title: title, message: message)
+    }
+    
     func didLoadMeals() {
         self.tableView?.reloadData()
     }

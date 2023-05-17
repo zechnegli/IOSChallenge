@@ -9,7 +9,6 @@ import XCTest
 @testable import IOSChallenge
 
 final class HomeViewControllerTests: XCTestCase {
-    
     func makeSUT() -> HomeViewController {
         let viewModel = MealTableViewModel(mealService: MealService(httpClient: HttpClient()))
         let sut = HomeViewController(with: viewModel)

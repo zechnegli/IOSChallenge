@@ -38,6 +38,15 @@ View Model-based Navigation: need to use rxswift, combine, callback, coupling is
 Storyboard Segues and Storyboard References: we are doing UI programmatically X
 
 Cache
+NSCache requires manual implementation of caching logic, such as retrieving, storing, and removing images. So i used Kingfisher. It offers a range of features and optimizations for handling image caching, including memory caching, disk caching, prefetching, and caching control strategies
+
+Error handling 
+
+
+Testing
+Report 
+
+Device Testing
 
 
 Anything to do in the future 

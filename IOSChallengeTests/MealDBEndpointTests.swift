@@ -9,7 +9,6 @@ import XCTest
 @testable import IOSChallenge
 
 class MealDBEndpointTests: XCTestCase {
-
     func test_filterByCategory() {
         let category = "dessert"
         let endpoint = MealDBEndpoint.filterByCategory(category: category)
