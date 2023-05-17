@@ -31,6 +31,7 @@
 		991FD1A62A14B00A00FB5726 /* MealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1A52A14B00A00FB5726 /* MealResponse.swift */; };
 		991FD1A82A153FFC00FB5726 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1A72A153FFC00FB5726 /* MealTableViewCell.swift */; };
 		991FD1AA2A15401B00FB5726 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1A92A15401B00FB5726 /* BaseTableViewCell.swift */; };
+		991FD1AC2A1545E000FB5726 /* MealDBEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1AB2A1545E000FB5726 /* MealDBEndpointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		991FD1A52A14B00A00FB5726 /* MealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponse.swift; sourceTree = "<group>"; };
 		991FD1A72A153FFC00FB5726 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		991FD1A92A15401B00FB5726 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		991FD1AB2A1545E000FB5726 /* MealDBEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDBEndpointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				991FD1662A14068700FB5726 /* HomeViewControllerTests.swift */,
 				991FD1A32A1466E700FB5726 /* HttpClientTests.swift */,
+				991FD1AB2A1545E000FB5726 /* MealDBEndpointTests.swift */,
 			);
 			path = IOSChallengeTests;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				991FD1A42A1466E700FB5726 /* HttpClientTests.swift in Sources */,
 				991FD1672A14068700FB5726 /* HomeViewControllerTests.swift in Sources */,
+				991FD1AC2A1545E000FB5726 /* MealDBEndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
