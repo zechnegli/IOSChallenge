@@ -55,12 +55,14 @@ class MealTableViewCell: BaseTableViewCell {
     }
 }
 
-struct MealTableViewCellConstants {
-    static let horizontalPadding: CGFloat = 10
-    static let verticalPadding: CGFloat = 10
-    static let stackViewSpacing: CGFloat = 10
-    static let imageWidth: CGFloat = 80
-    
-    static let mealNameFont: UIFont = .boldSystemFont(ofSize: 16)
-    static let mealNameTextColor: UIColor = .black
+extension MealTableViewCell {
+    private struct MealTableViewCellConstants {
+        static let horizontalPadding: CGFloat = 10
+        static let verticalPadding: CGFloat = 10
+        static let stackViewSpacing: CGFloat = 10
+        static let imageWidth: CGFloat = 80
+        
+        static let mealNameFont: UIFont = .boldSystemFont(ofSize: 16)
+        static let mealNameTextColor: UIColor = .black
+    }
 }

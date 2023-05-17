@@ -40,7 +40,7 @@ class HomeViewController: BaseViewController {
         tableView!.rowHeight = 100
         tableView!.translatesAutoresizingMaskIntoConstraints = false
         tableView!.prefetchDataSource = self
-        self.tableView!.register(MealTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.mealTableViewCell)
+        self.tableView!.register(MealTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.MealTableViewCell)
         self.view.addSubview(tableView!)
         NSLayoutConstraint.activate([
             tableView!.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -57,7 +57,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.mealTableViewCell, for: indexPath) as! MealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MealTableViewCell, for: indexPath) as! MealTableViewCell
         cell.mealNameLabel.text = viewModel.meals[indexPath.row].mealName
         cell.indexPath = indexPath
         cell.cancelTask = { [weak self] cellindex in
@@ -78,6 +78,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             viewModel.downloadThumbImage(at: indexPath, url: viewModel.meals[indexPath.row].mealThumbURL, completion: nil)
         }
     }
+    //bread butter pudding problem
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if viewModel.getDownloadImage(at: indexPath) != nil || viewModel.getDownloadTask(at: indexPath) != nil {

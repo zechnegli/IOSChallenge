@@ -8,6 +8,6 @@
 import Foundation
 
 struct CellIdentifiers {
-	static let mealTableViewCell = "mealTableViewCell"
-	
+	static let MealTableViewCell = "mealTableViewCell"
+	static let IngredientTableViewCell = "IngredientTableViewCell"
 }

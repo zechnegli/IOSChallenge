@@ -22,7 +22,6 @@
 		991FD18E2A144AAC00FB5726 /* MealTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD18D2A144AAC00FB5726 /* MealTableViewModel.swift */; };
 		991FD1912A144FB200FB5726 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1902A144FB200FB5726 /* Meal.swift */; };
 		991FD1932A144FD100FB5726 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1922A144FD100FB5726 /* MealDetail.swift */; };
-		991FD1962A14508800FB5726 /* MealWithDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1952A14508800FB5726 /* MealWithDetail.swift */; };
 		991FD1982A1458C400FB5726 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1972A1458C400FB5726 /* CustomError.swift */; };
 		991FD19A2A14596100FB5726 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1992A14596100FB5726 /* HttpClient.swift */; };
 		991FD19C2A145A5C00FB5726 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19B2A145A5C00FB5726 /* HttpMethod.swift */; };
@@ -36,6 +35,11 @@
 		991FD1AC2A1545E000FB5726 /* MealDBEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1AB2A1545E000FB5726 /* MealDBEndpointTests.swift */; };
 		991FD1AE2A15775B00FB5726 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1AD2A15775B00FB5726 /* ImageService.swift */; };
 		991FD1B02A157B5C00FB5726 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1AF2A157B5C00FB5726 /* BaseViewController.swift */; };
+		991FD1B32A15806700FB5726 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1B22A15806700FB5726 /* DetailViewController.swift */; };
+		991FD1B52A1580C500FB5726 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1B42A1580C500FB5726 /* DetailViewModel.swift */; };
+		991FD1B72A15835500FB5726 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1B62A15835500FB5726 /* IngredientTableViewCell.swift */; };
+		991FD1B92A1585C900FB5726 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1B82A1585C900FB5726 /* MainCoordinator.swift */; };
+		991FD1BB2A15871700FB5726 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1BA2A15871700FB5726 /* ViewControllerFactory.swift */; };
 		FD4ADD3460CBDB144B7ED974 /* Pods_IOSChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 141E6F06938C9219595DF972 /* Pods_IOSChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +84,6 @@
 		991FD18D2A144AAC00FB5726 /* MealTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewModel.swift; sourceTree = "<group>"; };
 		991FD1902A144FB200FB5726 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		991FD1922A144FD100FB5726 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
-		991FD1952A14508800FB5726 /* MealWithDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealWithDetail.swift; sourceTree = "<group>"; };
 		991FD1972A1458C400FB5726 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		991FD1992A14596100FB5726 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		991FD19B2A145A5C00FB5726 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -94,6 +97,11 @@
 		991FD1AB2A1545E000FB5726 /* MealDBEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDBEndpointTests.swift; sourceTree = "<group>"; };
 		991FD1AD2A15775B00FB5726 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		991FD1AF2A157B5C00FB5726 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		991FD1B22A15806700FB5726 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		991FD1B42A1580C500FB5726 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		991FD1B62A15835500FB5726 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		991FD1B82A1585C900FB5726 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		991FD1BA2A15871700FB5726 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		BD3153807BE8F8DB9D021B35 /* Pods-IOSChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-IOSChallengeTests/Pods-IOSChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C937F7F1EA5120CD9B3606CE /* Pods-IOSChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-IOSChallengeTests/Pods-IOSChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9696F60E75C86C3A23F12F7 /* Pods-IOSChallenge-IOSChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChallenge-IOSChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-IOSChallenge-IOSChallengeUITests/Pods-IOSChallenge-IOSChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				991FD18A2A1437DA00FB5726 /* UserStory */,
-				991FD18B2A14390C00FB5726 /* Coordinator */,
+				991FD18B2A14390C00FB5726 /* Routing */,
 				991FD1852A14377800FB5726 /* UI */,
 				991FD1832A14376200FB5726 /* Service */,
 				991FD1842A14376A00FB5726 /* Networking */,
@@ -174,7 +182,6 @@
 				991FD1882A14379800FB5726 /* Utils */,
 				991FD1892A1437C900FB5726 /* Common */,
 				991FD1872A14378F00FB5726 /* Constant */,
-				991FD1862A14378100FB5726 /* Protocol */,
 				991FD1812A1433EE00FB5726 /* Resources */,
 				991FD1552A14068600FB5726 /* IOSChallenge.xcdatamodeld */,
 				991FD17F2A140D0D00FB5726 /* README.md */,
@@ -216,10 +223,9 @@
 		991FD1822A14375900FB5726 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				991FD1952A14508800FB5726 /* MealWithDetail.swift */,
+				991FD1A52A14B00A00FB5726 /* MealResponse.swift */,
 				991FD1902A144FB200FB5726 /* Meal.swift */,
 				991FD1922A144FD100FB5726 /* MealDetail.swift */,
-				991FD1A52A14B00A00FB5726 /* MealResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,15 +253,9 @@
 			children = (
 				991FD1A72A153FFC00FB5726 /* MealTableViewCell.swift */,
 				991FD1A92A15401B00FB5726 /* BaseTableViewCell.swift */,
+				991FD1B62A15835500FB5726 /* IngredientTableViewCell.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		991FD1862A14378100FB5726 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		991FD1872A14378F00FB5726 /* Constant */ = {
@@ -270,6 +270,7 @@
 		991FD1882A14379800FB5726 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1BA2A15871700FB5726 /* ViewControllerFactory.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -286,16 +287,18 @@
 		991FD18A2A1437DA00FB5726 /* UserStory */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1B12A15805900FB5726 /* Detail */,
 				991FD18C2A14392900FB5726 /* Home */,
 			);
 			path = UserStory;
 			sourceTree = "<group>";
 		};
-		991FD18B2A14390C00FB5726 /* Coordinator */ = {
+		991FD18B2A14390C00FB5726 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1B82A1585C900FB5726 /* MainCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Routing;
 			sourceTree = "<group>";
 		};
 		991FD18C2A14392900FB5726 /* Home */ = {
@@ -305,6 +308,15 @@
 				991FD18D2A144AAC00FB5726 /* MealTableViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		991FD1B12A15805900FB5726 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				991FD1B22A15806700FB5726 /* DetailViewController.swift */,
+				991FD1B42A1580C500FB5726 /* DetailViewModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		BC9F5B38B5C2DF1F11066723 /* Frameworks */ = {
@@ -561,16 +573,20 @@
 				991FD14D2A14068600FB5726 /* AppDelegate.swift in Sources */,
 				991FD1A62A14B00A00FB5726 /* MealResponse.swift in Sources */,
 				991FD1B02A157B5C00FB5726 /* BaseViewController.swift in Sources */,
+				991FD1B92A1585C900FB5726 /* MainCoordinator.swift in Sources */,
 				991FD1A82A153FFC00FB5726 /* MealTableViewCell.swift in Sources */,
 				991FD19A2A14596100FB5726 /* HttpClient.swift in Sources */,
+				991FD1B32A15806700FB5726 /* DetailViewController.swift in Sources */,
 				991FD19C2A145A5C00FB5726 /* HttpMethod.swift in Sources */,
 				991FD1932A144FD100FB5726 /* MealDetail.swift in Sources */,
+				991FD1B72A15835500FB5726 /* IngredientTableViewCell.swift in Sources */,
 				991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */,
 				991FD19E2A145A6E00FB5726 /* APIEndpoint.swift in Sources */,
 				991FD1A22A145D7200FB5726 /* MealService.swift in Sources */,
 				991FD1AE2A15775B00FB5726 /* ImageService.swift in Sources */,
-				991FD1962A14508800FB5726 /* MealWithDetail.swift in Sources */,
 				991FD1AA2A15401B00FB5726 /* BaseTableViewCell.swift in Sources */,
+				991FD1BB2A15871700FB5726 /* ViewControllerFactory.swift in Sources */,
+				991FD1B52A1580C500FB5726 /* DetailViewModel.swift in Sources */,
 				991FD1A02A145A7A00FB5726 /* CellIdentifiers.swift in Sources */,
 				991FD1912A144FB200FB5726 /* Meal.swift in Sources */,
 				991FD1572A14068600FB5726 /* IOSChallenge.xcdatamodeld in Sources */,
