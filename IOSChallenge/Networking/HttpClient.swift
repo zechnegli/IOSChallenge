@@ -6,19 +6,17 @@
 //
 
 import Foundation
-protocol HttpClient {
-    func sendRequest<T>(host: String, path: String, queryParameters: [URLQueryItem], method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable
+protocol HttpClientProtocol {
+    func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable
 }
 
-struct URLSessionHttpClient: HttpClient {
+struct HttpClient: HttpClientProtocol {
     /**
      Sends a network request to the specified URL with query parameters and HTTP method.
      This method supports retry mechanism for failed requests.
 
      - Parameters:
-        - host: The host of the URL.
-        - path: The path of the URL.
-        - queryParameters: The query parameters to be included in the URL.
+        - url: The URL to send the request to.
         - method: The HTTP method to be used for the request.
         - maxRetries: The maximum number of retries to attempt for failed requests.
         - retryDelay: The delay interval between retries.
@@ -27,19 +25,7 @@ struct URLSessionHttpClient: HttpClient {
 
      - Throws: An error of type `CustomError` if there is a failure during the request.
      */
-    func sendRequest<T>(host: String, path: String, queryParameters: [URLQueryItem], method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable {
-        var components = URLComponents()
-        components.host = host
-        components.scheme = "https"
-        components.path = path
-        components.queryItems = queryParameters
-        
-        guard let url = components.url else {
-            completion(.failure(CustomError.urlParseError("Url parse error")))
-            return
-        }
-        print(url)
-        
+    func sendRequest<T>(url: URL, method: HTTPMethod, maxRetries: Int, retryDelay: TimeInterval, completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable, T: Encodable {
         var currentRetry = 0
         
         func performRequest() {
@@ -88,6 +74,4 @@ struct URLSessionHttpClient: HttpClient {
         
         performRequest()
     }
-
-
 }

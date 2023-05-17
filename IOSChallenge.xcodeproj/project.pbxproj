@@ -26,6 +26,7 @@
 		991FD19C2A145A5C00FB5726 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19B2A145A5C00FB5726 /* HttpMethod.swift */; };
 		991FD19E2A145A6E00FB5726 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */; };
 		991FD1A02A145A7A00FB5726 /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD19F2A145A7A00FB5726 /* CellIdentifiers.swift */; };
+		991FD1A22A145D7200FB5726 /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1A12A145D7200FB5726 /* MealService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		991FD19B2A145A5C00FB5726 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		991FD19F2A145A7A00FB5726 /* CellIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
+		991FD1A12A145D7200FB5726 /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		991FD1832A14376200FB5726 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1A12A145D7200FB5726 /* MealService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				991FD1932A144FD100FB5726 /* MealDetail.swift in Sources */,
 				991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */,
 				991FD19E2A145A6E00FB5726 /* APIEndpoint.swift in Sources */,
+				991FD1A22A145D7200FB5726 /* MealService.swift in Sources */,
 				991FD1962A14508800FB5726 /* MealWithDetail.swift in Sources */,
 				991FD1A02A145A7A00FB5726 /* CellIdentifiers.swift in Sources */,
 				991FD1912A144FB200FB5726 /* Meal.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  HttpMethod.swift
-//  TestPhone
+//  HTTPMethod.swift
+//  IOSChallenge
 //
-//  Created by Zecheng Li on 5/13/23.
+//  Created by Zecheng Li on 5/16/23.
 //
 
 import Foundation

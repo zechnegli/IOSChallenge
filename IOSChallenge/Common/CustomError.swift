@@ -1,5 +1,5 @@
 //
-//  APIError.swift
+//  CustomError.swift
 //  IOSChallenge
 //
 //  Created by Zecheng Li on 5/16/23.

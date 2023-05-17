@@ -1,14 +1,40 @@
 //
-//  APIEndpoint.swift
-//  TestPhone
+//  MealDBEndpoint.swift
+//  IOSChallenge
 //
-//  Created by Zecheng Li on 5/13/23.
+//  Created by Zecheng Li on 5/16/23.
 //
 
 import Foundation
-enum UnsplashAPIEndpoint {
-	static let baseURL = "api.unsplash.com"
-	static let photos = "/photos"
-	static let search = "/search/photos"
-	// Other Unsplash API endpoints...
+enum MealDBEndpoint {
+    case filterByCategory(category: String)
+    case lookupByID(mealID: Int)
+    
+    var baseURL: String {
+        return "https://themealdb.com/api/json/v1/1"
+    }
+    
+    var path: String {
+        switch self {
+        case .filterByCategory:
+            return "/filter.php"
+        case .lookupByID:
+            return "/lookup.php"
+        }
+    }
+    
+    var queryItems: [URLQueryItem] {
+        switch self {
+        case .filterByCategory(let category):
+            return [URLQueryItem(name: "c", value: category)]
+        case .lookupByID(let mealID):
+            return [URLQueryItem(name: "i", value: "\(mealID)")]
+        }
+    }
+    
+    var url: URL? {
+        var components = URLComponents(string: baseURL + path)
+        components?.queryItems = queryItems
+        return components?.url
+    }
 }
