@@ -1,15 +1,6 @@
 # IOSChallenge
 
-Features
-showing the list of meals in the Dessert category, sorted alphabetically
-selecting a meal from list and presenting a detail view that includes: meal name, instructions, and ingredients/measurements
 
-Reqiurements: 
-    filter out any null or empty values 
-    
-Remote Sever API:
-● https://themealdb.com/api/json/v1/1/filter.php?c=Dessert for fetching the list of meals in the Dessert category.
-● https://themealdb.com/api/json/v1/1/lookup.php?i=MEAL_ID for fetching the meal details by its ID.
 
 High Level Architecture 
 Since this is a small App, our mobile client only need to talk with backend server to to get the meal data, there is no other components like caching or messaging queue service
