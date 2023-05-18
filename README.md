@@ -31,8 +31,12 @@ Storyboard Segues and Storyboard References: we are doing UI programmatically X
 Cache
 NSCache requires manual implementation of caching logic, such as retrieving, storing, and removing images. So i used Kingfisher. It offers a range of features and optimizations for handling image caching, including memory caching, disk caching, prefetching, and caching control strategies
 
-Error handling 
+Networking 
+retry with delay
+the server might be overwhelmed by the amount of requests. In this case, we want to make sure that the system will not be thrashed by the users hitting “refresh” every couple of seconds. Instead, we want to spread out the time between retries.
 
+Error handling 
+Alert with error description
 
 Testing
 Report 
@@ -45,5 +49,6 @@ Localizaiton
 UI improvements
 pagination
 since the API doesn't provide pagination support for querying a list of meal and the list is reasonably small, fetching it all at once should not be a problem.
+Centrialized Log service instead of using print statement 
 
 appverion - 1

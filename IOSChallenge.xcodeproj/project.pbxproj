@@ -184,7 +184,6 @@
 				991FD1842A14376A00FB5726 /* Networking */,
 				991FD1822A14375900FB5726 /* Model */,
 				991FD1882A14379800FB5726 /* Utils */,
-				991FD1892A1437C900FB5726 /* Common */,
 				991FD1872A14378F00FB5726 /* Constant */,
 				991FD1812A1433EE00FB5726 /* Resources */,
 				991FD1552A14068600FB5726 /* IOSChallenge.xcdatamodeld */,
@@ -228,8 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				991FD1A52A14B00A00FB5726 /* MealResponse.swift */,
-				991FD1902A144FB200FB5726 /* Meal.swift */,
 				991FD1BC2A15BBEB00FB5726 /* MealDetailResponse.swift */,
+				991FD1902A144FB200FB5726 /* Meal.swift */,
 				991FD1922A144FD100FB5726 /* MealDetail.swift */,
 			);
 			path = Model;
@@ -247,7 +246,7 @@
 		991FD1842A14376A00FB5726 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */,
+				991FD1C02A1695DF00FB5726 /* API */,
 				991FD1992A14596100FB5726 /* HttpClient.swift */,
 			);
 			path = Networking;
@@ -267,6 +266,7 @@
 		991FD1872A14378F00FB5726 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				991FD1972A1458C400FB5726 /* CustomError.swift */,
 				991FD19F2A145A7A00FB5726 /* CellIdentifiers.swift */,
 				991FD19B2A145A5C00FB5726 /* HttpMethod.swift */,
 			);
@@ -277,17 +277,9 @@
 			isa = PBXGroup;
 			children = (
 				991FD1BA2A15871700FB5726 /* ViewControllerFactory.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		991FD1892A1437C900FB5726 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				991FD1972A1458C400FB5726 /* CustomError.swift */,
 				991FD1AF2A157B5C00FB5726 /* BaseViewController.swift */,
 			);
-			path = Common;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		991FD18A2A1437DA00FB5726 /* UserStory */ = {
@@ -323,6 +315,14 @@
 				991FD1B42A1580C500FB5726 /* DetailViewModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		991FD1C02A1695DF00FB5726 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				991FD19D2A145A6E00FB5726 /* APIEndpoint.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		BC9F5B38B5C2DF1F11066723 /* Frameworks */ = {

@@ -77,19 +77,8 @@ class MealTableViewModel: TableViewModelProtocol {
                         self?.delegate?.didLoadMeals()
                     }
                 case .failure(let error):
-                    switch error {
-                        case CustomError.urlParseError:
-                            self?.delegate?.showError(title: "Error", message: "urlParseError")
-                        case CustomError.networkError:
-                            self?.delegate?.showError(title: "Error", message: "networkError")
-                        case CustomError.decodingError:
-                            self?.delegate?.showError(title: "Error", message: "decodingError")
-                        case CustomError.serverError:
-                            self?.delegate?.showError(title: "Error", message: "serverError")
-                        case CustomError.unknownError:
-                            self?.delegate?.showError(title: "Error", message: "unknownError")
-                        default:
-                            self?.delegate?.showError(title: "Error", message: "Error")
+                    DispatchQueue.main.async {
+                        self?.delegate?.showError(title: "Error", message: error.localizedDescription)
                     }
                     print(error.localizedDescription)
             }
