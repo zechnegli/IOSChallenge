@@ -11,7 +11,7 @@ import Kingfisher
 
 protocol TableViewModelProtocol {
     var meals: [Meal] {get}
-    var delegate: TableViewModelDelegate? { get set}
+    var delegate: MealTableViewModelDelegate? { get set}
     func fetchMeals()
     func fetchMealDetail(mealID: Int)
     func cancelDownloadTask(at indexPath: IndexPath)
@@ -23,7 +23,7 @@ protocol TableViewModelProtocol {
     
 }
 
-protocol TableViewModelDelegate: AnyObject {
+protocol MealTableViewModelDelegate: AnyObject {
     func didLoadMeals()
     func showError(title: String, message: String)
 }
@@ -34,7 +34,7 @@ class MealTableViewModel: TableViewModelProtocol {
     private(set) var meals: [Meal] = []
     private(set) var downloadTasks: [IndexPath: DownloadTask] = [:]
     private(set) var predownloadImges: [IndexPath: UIImage] = [:]
-    weak var delegate: TableViewModelDelegate?
+    weak var delegate: MealTableViewModelDelegate?
         
     init(mealService: MealServiceProtocol, imageService: ImageServiceProtocol) {
         self.mealService = mealService

@@ -10,7 +10,7 @@ import UIKit
 
 protocol ViewControllerFactoryProtocol {
     func createHomeViewController() -> HomeViewController
-    func createDetailViewController(with mealID: String?) -> DetailViewController
+    func createDetailViewController(with mealID: String?, _ image: UIImage?) -> DetailViewController
 }
 
 struct ViewControllerFactory: ViewControllerFactoryProtocol {
@@ -22,9 +22,11 @@ struct ViewControllerFactory: ViewControllerFactoryProtocol {
         return viewController
     }
     
-    func createDetailViewController(with mealID: String?) -> DetailViewController {
-        let viewModel = DetailViewModel()
+    func createDetailViewController(with mealID: String?, _ image: UIImage?) -> DetailViewController {
+        let mealService = MealService(httpClient: HttpClient())
+        let viewModel = DetailViewModel(mealService: mealService)
         viewModel.mealID = mealID
+        viewModel.image = image
         let viewController = DetailViewController(with: viewModel)
         return viewController
     }

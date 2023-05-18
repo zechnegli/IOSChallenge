@@ -11,6 +11,7 @@ class IngredientTableViewCell: BaseTableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.font = MealTableViewCellConstants.titleFont
         label.textColor = MealTableViewCellConstants.titleTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +20,7 @@ class IngredientTableViewCell: BaseTableViewCell {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.font = MealTableViewCellConstants.subtitleFont
         label.textColor = MealTableViewCellConstants.subtitleTextColor
         label.translatesAutoresizingMaskIntoConstraints = false

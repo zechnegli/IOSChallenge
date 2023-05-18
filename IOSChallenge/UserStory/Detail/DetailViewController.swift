@@ -25,15 +25,6 @@ class DetailViewController: BaseViewController {
         return label
     }()
     
-    private let instructionsLabel: UILabel = {
-        let label = UILabel()
-        label.font = DetailViewConstants.instructionsLabelFont
-        label.textColor = DetailViewConstants.instructionsLabelTextColor
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let ingredientsTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = DetailViewConstants.ingredientsTableViewSeparatorStyle
@@ -54,7 +45,9 @@ class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel.delegate = self
         configureDetailViews()
+        viewModel.fetchMealDetail()
     }
     
     private func configureDetailViews() {
@@ -62,7 +55,6 @@ class DetailViewController: BaseViewController {
         
         view.addSubview(imageView)
         view.addSubview(nameLabel)
-        view.addSubview(instructionsLabel)
         view.addSubview(ingredientsTableView)
         
         NSLayoutConstraint.activate([
@@ -75,11 +67,7 @@ class DetailViewController: BaseViewController {
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            instructionsLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
-            instructionsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            instructionsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            ingredientsTableView.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: 16),
+            ingredientsTableView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
             ingredientsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             ingredientsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             ingredientsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -87,29 +75,36 @@ class DetailViewController: BaseViewController {
         
         // Set the data from the view model
         imageView.image = viewModel.image
-        nameLabel.text = viewModel.mealName
-        instructionsLabel.text = viewModel.instructions
         
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         ingredientsTableView.register(IngredientTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.IngredientTableViewCell)
+        ingredientsTableView.register(DescriptionTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.DescriptionTableViewCell)
     }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.ingredients.count
+        return (viewModel.mealDetail?.ingredients?.count ?? 0) +  (viewModel.mealDetail?.instructions == nil ? 0 : 1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.IngredientTableViewCell, for: indexPath) as! IngredientTableViewCell
-        
-        let ingredient = viewModel.ingredients[indexPath.row] ?? ""
-        let measure = viewModel.measures[indexPath.row] ?? ""
-        
-        cell.configureCell(ingredient: ingredient, measure: measure)
-        
-        return cell
+        if indexPath.row == 0 {
+            let cell = DescriptionTableViewCell(style: .default, reuseIdentifier: nil)
+            cell.selectionStyle = .none
+            cell.descriptionLabel.text = viewModel.mealDetail?.instructions
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.IngredientTableViewCell, for: indexPath) as! IngredientTableViewCell
+            cell.selectionStyle = .none
+            let ingredientIndex = indexPath.row - 1
+            let ingredient = viewModel.mealDetail?.ingredients?[ingredientIndex] ?? ""
+            let measure = viewModel.mealDetail?.measures?[ingredientIndex] ?? ""
+            
+            cell.configureCell(ingredient: ingredient, measure: measure)
+            
+            return cell
+        }
     }
 }
 
@@ -122,4 +117,15 @@ struct DetailViewConstants {
     static let instructionsLabelFont: UIFont = .systemFont(ofSize: 16)
     static let instructionsLabelTextColor: UIColor = .black
     static let ingredientsTableViewSeparatorStyle: UITableViewCell.SeparatorStyle = .none
+}
+
+extension DetailViewController: DetailViewModelDelegate {
+    func showError(title: String, message: String) {
+        showAlert(title: title, message: message)
+    }
+    
+    func didFetchDetail() {
+        ingredientsTableView.reloadData()
+        nameLabel.text = viewModel.mealDetail?.mealName
+    }
 }

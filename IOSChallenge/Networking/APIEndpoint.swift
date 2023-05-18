@@ -8,7 +8,7 @@
 import Foundation
 enum MealDBEndpoint {
     case filterByCategory(category: String)
-    case lookupByID(mealID: Int)
+    case lookupByID(mealID: String)
     
     var baseURL: String {
         return "https://themealdb.com/api/json/v1/1"
@@ -28,7 +28,7 @@ enum MealDBEndpoint {
         case .filterByCategory(let category):
             return [URLQueryItem(name: "c", value: category)]
         case .lookupByID(let mealID):
-            return [URLQueryItem(name: "i", value: "\(mealID)")]
+            return [URLQueryItem(name: "i", value: mealID)]
         }
     }
     

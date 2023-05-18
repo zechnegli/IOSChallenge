@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeViewControllerDelegate: AnyObject {
-    func homeViewControllerDidSelectCell(with mealID: String?)
+    func homeViewControllerDidSelectCell(with mealID: String?, _ image: UIImage?)
 }
 
 class HomeViewController: BaseViewController {
@@ -72,7 +72,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             }
             self?.viewModel.cancelDownloadTask(at: cellindex)
             self?.viewModel.removeDownloadTask(at: cellindex)
-            self?.viewModel.removeDownloadImage(at: cellindex)
             
         }
         cell.mealThumbImageView.image = viewModel.getDownloadImage(at: indexPath)
@@ -87,6 +86,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     //bread butter pudding problem
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as! MealTableViewCell).mealThumbImageView.image = viewModel.getDownloadImage(at: indexPath)
         if viewModel.getDownloadImage(at: indexPath) != nil || viewModel.getDownloadTask(at: indexPath) != nil {
             return
         }
@@ -96,12 +96,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.homeViewControllerDidSelectCell(with: viewModel.meals[indexPath.row].mealID)
-//        coordinator?.goToDetailVC(viewModel.images[indexPath.row].urls.raw, viewModel.images[indexPath.row].description)
+        delegate?.homeViewControllerDidSelectCell(with: viewModel.meals[indexPath.row].mealID, viewModel.getDownloadImage(at: indexPath))
     }
 }
 
-extension HomeViewController: TableViewModelDelegate {
+extension HomeViewController: MealTableViewModelDelegate {
     func showError(title: String, message: String) {
         self.showAlert(title: title, message: message)
     }

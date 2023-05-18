@@ -40,6 +40,8 @@
 		991FD1B72A15835500FB5726 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1B62A15835500FB5726 /* IngredientTableViewCell.swift */; };
 		991FD1B92A1585C900FB5726 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1B82A1585C900FB5726 /* MainCoordinator.swift */; };
 		991FD1BB2A15871700FB5726 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1BA2A15871700FB5726 /* ViewControllerFactory.swift */; };
+		991FD1BD2A15BBEB00FB5726 /* MealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1BC2A15BBEB00FB5726 /* MealDetailResponse.swift */; };
+		991FD1BF2A15DA7100FB5726 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FD1BE2A15DA7100FB5726 /* DescriptionTableViewCell.swift */; };
 		FD4ADD3460CBDB144B7ED974 /* Pods_IOSChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 141E6F06938C9219595DF972 /* Pods_IOSChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		991FD1B62A15835500FB5726 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		991FD1B82A1585C900FB5726 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		991FD1BA2A15871700FB5726 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		991FD1BC2A15BBEB00FB5726 /* MealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailResponse.swift; sourceTree = "<group>"; };
+		991FD1BE2A15DA7100FB5726 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		BD3153807BE8F8DB9D021B35 /* Pods-IOSChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-IOSChallengeTests/Pods-IOSChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C937F7F1EA5120CD9B3606CE /* Pods-IOSChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-IOSChallengeTests/Pods-IOSChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9696F60E75C86C3A23F12F7 /* Pods-IOSChallenge-IOSChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChallenge-IOSChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-IOSChallenge-IOSChallengeUITests/Pods-IOSChallenge-IOSChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			children = (
 				991FD1A52A14B00A00FB5726 /* MealResponse.swift */,
 				991FD1902A144FB200FB5726 /* Meal.swift */,
+				991FD1BC2A15BBEB00FB5726 /* MealDetailResponse.swift */,
 				991FD1922A144FD100FB5726 /* MealDetail.swift */,
 			);
 			path = Model;
@@ -254,6 +259,7 @@
 				991FD1A72A153FFC00FB5726 /* MealTableViewCell.swift */,
 				991FD1A92A15401B00FB5726 /* BaseTableViewCell.swift */,
 				991FD1B62A15835500FB5726 /* IngredientTableViewCell.swift */,
+				991FD1BE2A15DA7100FB5726 /* DescriptionTableViewCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -579,6 +585,7 @@
 				991FD1B32A15806700FB5726 /* DetailViewController.swift in Sources */,
 				991FD19C2A145A5C00FB5726 /* HttpMethod.swift in Sources */,
 				991FD1932A144FD100FB5726 /* MealDetail.swift in Sources */,
+				991FD1BF2A15DA7100FB5726 /* DescriptionTableViewCell.swift in Sources */,
 				991FD1B72A15835500FB5726 /* IngredientTableViewCell.swift in Sources */,
 				991FD14F2A14068600FB5726 /* SceneDelegate.swift in Sources */,
 				991FD19E2A145A6E00FB5726 /* APIEndpoint.swift in Sources */,
@@ -588,6 +595,7 @@
 				991FD1BB2A15871700FB5726 /* ViewControllerFactory.swift in Sources */,
 				991FD1B52A1580C500FB5726 /* DetailViewModel.swift in Sources */,
 				991FD1A02A145A7A00FB5726 /* CellIdentifiers.swift in Sources */,
+				991FD1BD2A15BBEB00FB5726 /* MealDetailResponse.swift in Sources */,
 				991FD1912A144FB200FB5726 /* Meal.swift in Sources */,
 				991FD1572A14068600FB5726 /* IOSChallenge.xcdatamodeld in Sources */,
 				991FD1982A1458C400FB5726 /* CustomError.swift in Sources */,

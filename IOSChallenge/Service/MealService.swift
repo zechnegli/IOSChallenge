@@ -13,7 +13,7 @@ enum MealCategory: String {
 
 protocol MealServiceProtocol {
     func getMeals(category: MealCategory, completion: @escaping (Result<MealResponse, Error>) -> Void)
-    func getMealDetail(mealID: Int, completion: @escaping (Result<MealDetail, Error>) -> Void)
+    func getMealDetail(mealID: String, completion: @escaping (Result<MealDetailResponse, Error>) -> Void)
 }
 
 struct MealService: MealServiceProtocol {
@@ -35,24 +35,15 @@ struct MealService: MealServiceProtocol {
         }
     }
     
-    func getMealDetail(mealID: Int, completion: @escaping (Result<MealDetail, Error>) -> Void) {
+    func getMealDetail(mealID: String, completion: @escaping (Result<MealDetailResponse, Error>) -> Void) {
         let endpoint = MealDBEndpoint.lookupByID(mealID: mealID)
         guard let url = endpoint.url else {
             completion(.failure(CustomError.urlParseError("URL parse error")))
             return
         }
         
-        httpClient.sendRequest(url: url, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<[MealDetail], Error>) in
-            switch result {
-            case .success(let mealDetails):
-                if let mealDetail = mealDetails.first {
-                    completion(.success(mealDetail))
-                } else {
-                    completion(.failure(CustomError.noData))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
+        httpClient.sendRequest(url: url, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<MealDetailResponse, Error>) in
+            completion(result)
         }
     }
 }

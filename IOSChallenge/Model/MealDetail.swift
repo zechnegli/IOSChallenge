@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MealDetail: Codable {
+struct MealDetail: Decodable {
     var mealName: String?
     var instructions: String?
     var ingredients: [String?]?
@@ -18,36 +18,43 @@ struct MealDetail: Codable {
         case mealName = "strMeal"
         case instructions = "strInstructions"
     }
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         mealName = try container.decode(String.self, forKey: .mealName)
         instructions = try container.decode(String.self, forKey: .instructions)
-        ingredients = MealDetail.decodeDynamicKeys(container: container, keyPrefix: "strIngredient")
-        measures = MealDetail.decodeDynamicKeys(container: container, keyPrefix: "strMeasure")
-    }
-
-    private static func decodeDynamicKeys(container: KeyedDecodingContainer<CodingKeys>, keyPrefix: String) -> [String?] {
-        var dynamicKeys: [String] = []
-        var index = 1
         
-        while let dynamicKey = container.contains(.init(stringValue: "\(keyPrefix)\(index)")!) ? "\(keyPrefix)\(index)" : nil {
-            dynamicKeys.append(dynamicKey)
-            index += 1
-        }
+        let nestedContainer = try decoder.container(keyedBy: DynamicCodingKey.self)
+        var dynamicIngredients: [(index: Int, ingredient: String)] = []
+        var dynamicMeasures: [(index: Int, measure: String)] = []
         
-        return dynamicKeys.map { key in
-            do {
-                if let codingKey = CodingKeys(stringValue: key) {
-                    return try container.decodeIfPresent(String.self, forKey: codingKey)
-                } else {
-                    return nil
-                }
-            } catch {
-                print("Error decoding dynamic key: \(error) key \(key)")
-                return nil
+        for key in nestedContainer.allKeys {
+            if key.stringValue.hasPrefix("strIngredient"), let ingredient = try nestedContainer.decodeIfPresent(String.self, forKey: key) {
+                let indexString = key.stringValue.replacingOccurrences(of: "strIngredient", with: "")
+                let index = Int(indexString) ?? -1
+                dynamicIngredients.append((index, ingredient))
+            } else if key.stringValue.hasPrefix("strMeasure"), let measure = try nestedContainer.decodeIfPresent(String.self, forKey: key) {
+                let indexString = key.stringValue.replacingOccurrences(of: "strMeasure", with: "")
+                let index = Int(indexString) ?? -1
+                dynamicMeasures.append((index, measure))
             }
         }
+        
+        dynamicIngredients.sort { $0.index < $1.index }
+        dynamicMeasures.sort { $0.index < $1.index }
+        
+        ingredients = dynamicIngredients.map { $0.ingredient }
+        measures = dynamicMeasures.map { $0.measure }
     }
+
+}
+
+struct DynamicCodingKey: CodingKey {
+    var stringValue: String
+    init?(stringValue: String) {
+        self.stringValue = stringValue
+    }
+    var intValue: Int? { return nil }
+    init?(intValue: Int) { return nil }
 }

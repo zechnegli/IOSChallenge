@@ -14,7 +14,7 @@ protocol CoordinatorProtocol {
 
 protocol MainCoordinatorProtocol: CoordinatorProtocol {
     func start()
-    func homeViewControllerDidSelectCell(with mealID: String?)
+    func goToDetailVC(with mealID: String?, _ image: UIImage?)
 }
 
 class MainCoordinator: MainCoordinatorProtocol {
@@ -34,15 +34,16 @@ class MainCoordinator: MainCoordinatorProtocol {
         navigationController.setViewControllers([homeViewController], animated: false)
     }
     
-    func goToDetailVC(with mealID: String?) {
-        let detailViewController = viewControllerFactory.createDetailViewController(with: mealID)
+    func goToDetailVC(with mealID: String?, _ image: UIImage?) {
+        let detailViewController = viewControllerFactory.createDetailViewController(with: mealID, image)
         navigationController.pushViewController(detailViewController, animated: true)
     }
 }
 
-extension MainCoordinator: HomeViewControllerDelegate{
-    func homeViewControllerDidSelectCell(with mealID: String?) {
-        goToDetailVC(with: mealID)
+extension MainCoordinator: HomeViewControllerDelegate {
+    func homeViewControllerDidSelectCell(with mealID: String?, _ image: UIImage?) {
+        goToDetailVC(with: mealID, image)
     }
+    
 }
 
