@@ -75,6 +75,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             
         }
         cell.mealThumbImageView.image = viewModel.getDownloadImage(at: indexPath)
+        if (cell.mealThumbImageView.image != nil) {
+            cell.activityIndicatorView.stopAnimating()
+        }
         return cell
     }
     
@@ -91,6 +94,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             return
         }
         viewModel.downloadThumbImage(at: indexPath, url: viewModel.meals[indexPath.row].mealThumbURL) {image in
+            (cell as! MealTableViewCell).activityIndicatorView.stopAnimating()
             (cell as! MealTableViewCell).mealThumbImageView.image = image
         }
     }

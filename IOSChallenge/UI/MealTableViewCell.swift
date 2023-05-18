@@ -24,6 +24,14 @@ class MealTableViewCell: BaseTableViewCell {
         return imageView
     }()
     
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.startAnimating()
+        return activityIndicatorView
+    }()
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [mealThumbImageView, mealNameLabel])
         stackView.axis = .horizontal
@@ -31,18 +39,23 @@ class MealTableViewCell: BaseTableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
     var indexPath: IndexPath?
     var cancelTask: ((IndexPath?) -> Void)?
     
     override func setupLayout() {
         contentView.addSubview(stackView)
+        contentView.addSubview(activityIndicatorView)
         
         NSLayoutConstraint.activate([
             mealThumbImageView.widthAnchor.constraint(equalToConstant: MealTableViewCellConstants.imageWidth),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: MealTableViewCellConstants.horizontalPadding),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: MealTableViewCellConstants.verticalPadding),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -MealTableViewCellConstants.horizontalPadding),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -MealTableViewCellConstants.verticalPadding)
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -MealTableViewCellConstants.verticalPadding),
+            
+            activityIndicatorView.centerXAnchor.constraint(equalTo: mealThumbImageView.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: mealThumbImageView.centerYAnchor)
         ])
     }
     
@@ -52,8 +65,10 @@ class MealTableViewCell: BaseTableViewCell {
         cancelTask?(indexPath)
         cancelTask = nil
         indexPath = nil
+        activityIndicatorView.startAnimating()
     }
 }
+
 
 extension MealTableViewCell {
     private struct MealTableViewCellConstants {
