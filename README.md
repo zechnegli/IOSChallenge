@@ -41,7 +41,7 @@
     become tightly coupled with the view controllers.
     
     To adhere to the software design principle of separation of concerns, I have decided to 
-    adopt the MVVM architecture  with delegate/protocol as the communication mechanism. 
+    adopt the MVVM architecture with delegate/protocol as the communication mechanism. 
     Introducing additional communication mechanisms such as RxSwift, Combine, or KVO would 
     add an extra layer of complexity to the project and make it difficult for developers 
     without relevant experience with these frameworks to understand.
@@ -49,7 +49,7 @@
 <h2>UI Design</h2>
 
     Storyboards offer certain benefits, especially when working with tight project deadlines. However, 
-    they can be challenging to maintain, and the build time can also increase."
+    they can be challenging to maintain, and the build time can also increase.
     Swift UI: backward support 
     So in this project, I have created all the layouts programmatically using UIKit.
  
@@ -86,7 +86,7 @@
         Reduce load on server: the server might be overwhelmed by the amount of requests. In this case, 
         we want to make sure that the system will not be thrashed by the users hitting “refresh” every couple 
         of seconds. Instead, we want to spread out the time between retries.
-    inifite scrolling: cancel requests if necessary 
+    infinite scrolling: cancel requests if necessary 
     
 <h2>Error handling</h2>
 
@@ -100,7 +100,7 @@
         device Testing: simulatie slow networking condition: edge, 3g, LTE
     UI testing
         device Testing: different devices size testing 
-        adapte to landscape and portrait for deailview
+        adapt to landscape and portrait for deailview
     Performance Testing 
         remove the device cache every launch (kingfisher) 
         
@@ -109,8 +109,7 @@
 <h2>Future Tasks</h2>
 
     Pull refresh
-    Transition to combine/Rxswift + MVVM + Rxflow to avoid heavy use of protocols/delegates/closures 
-        to expose states
+    Transition to combine/Rxswift + MVVM + Rxflow to avoid heavy use of protocols/delegates/closures to expose states
     Localizaiton 
     Logging: Centrialized Logging service instead of using print statement 
     UI improvements
