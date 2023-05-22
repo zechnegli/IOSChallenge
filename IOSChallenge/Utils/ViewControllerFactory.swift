@@ -10,24 +10,27 @@ import UIKit
 
 protocol ViewControllerFactoryProtocol {
     func createHomeViewController() -> HomeViewController
-    func createDetailViewController(with mealID: String?, _ image: UIImage?) -> DetailViewController
+    func createDetailViewController(with mealID: String?, _ imageUrl: String?) -> DetailViewController
 }
 
 struct ViewControllerFactory: ViewControllerFactoryProtocol {
     func createHomeViewController() -> HomeViewController {
         let mealService = MealService(httpClient: HttpClient())
         let imageService = ImageService()
+        let alertManager = AlertManager()
         let viewModel = MealTableViewModel(mealService: mealService, imageService: imageService)
-        let viewController = HomeViewController(with: viewModel)
+        let viewController = HomeViewController(with: viewModel, alertManager: alertManager)
         return viewController
     }
     
-    func createDetailViewController(with mealID: String?, _ image: UIImage?) -> DetailViewController {
+    func createDetailViewController(with mealID: String?, _ imageUrl: String?) -> DetailViewController {
         let mealService = MealService(httpClient: HttpClient())
-        let viewModel = DetailViewModel(mealService: mealService)
+        let imageService = ImageService()
+        let alertManager = AlertManager()
+        let viewModel = DetailViewModel(mealService: mealService, imageService: imageService)
         viewModel.mealID = mealID
-        viewModel.image = image
-        let viewController = DetailViewController(with: viewModel)
+        viewModel.imageUrl = imageUrl
+        let viewController = DetailViewController(with: viewModel, alertManager: alertManager)
         return viewController
     }
 }

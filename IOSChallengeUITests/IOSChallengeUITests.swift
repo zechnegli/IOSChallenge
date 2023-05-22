@@ -6,36 +6,45 @@
 //
 
 import XCTest
+@testable import IOSChallenge
 
-final class IOSChallengeUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+final class DetailViewControllerUITests: XCTestCase {
+    //landscape and portrait
+    func test_DetailViewControllerLayout() throws {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+        
+        // Wait for the app to load meals
+        sleep(5)
+        //inital
+        XCUIDevice.shared.orientation = .portrait
+        
+        // Check if there is at least one cell
+        guard app.tables.cells.count > 0 else {
+            XCTAssert(true, "Network loading issue: No cells found in the HomeViewController table view, ")
+            return
         }
+        let imageViewSize = 200.0
+        let imageViewSizeLandscape = 100.0
+        
+        // Tap on the first cell
+        app.tables.cells.element(boundBy: 0).tap()
+
+        // Perform layout checks in portrait orientation
+        XCTAssertTrue(app.images["imageView"].exists, "imageView does not exist in portrait orientation")
+        XCTAssertEqual(app.images["imageView"].frame.size.width, CGFloat(imageViewSize))
+        XCTAssertEqual(app.images["imageView"].frame.size.height, CGFloat(imageViewSize))
+
+        // Rotate the device to landscape orientation
+        XCUIDevice.shared.orientation = .landscapeRight
+
+        // Wait for the rotation to complete
+        usleep(500000) // Wait for 0.5 seconds (adjust if needed)
+
+        // Perform layout checks in landscape orientation
+        XCTAssertTrue(app.images["imageView"].exists, "imageView does not exist in landscape orientation")
+        XCTAssertEqual(app.images["imageView"].frame.size.width, CGFloat(imageViewSizeLandscape))
+        XCTAssertEqual(app.images["imageView"].frame.size.height, CGFloat(imageViewSizeLandscape))
     }
+
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 protocol URLSessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol
 }
@@ -55,7 +54,7 @@ struct HttpClient: HttpClientProtocol {
                         currentRetry += 1
                         print("Retry attempt \(currentRetry)...")
                         DispatchQueue.main.asyncAfter(deadline: .now() + retryDelay) {
-                            performRequest() // Retry the request after the delay
+                            performRequest()
                         }
                     } else {
                         completion(.failure(error))

@@ -22,12 +22,12 @@ class MealDBEndpointTests: XCTestCase {
     }
 
     func test_lookupByID() {
-        let mealID = 12345
+        let mealID = "12345"
         let endpoint = MealDBEndpoint.lookupByID(mealID: mealID)
 
         XCTAssertEqual(endpoint.baseURL, "https://themealdb.com/api/json/v1/1")
         XCTAssertEqual(endpoint.path, "/lookup.php")
-        XCTAssertEqual(endpoint.queryItems, [URLQueryItem(name: "i", value: "\(mealID)")])
+        XCTAssertEqual(endpoint.queryItems, [URLQueryItem(name: "i", value: mealID)])
 
         let expectedURL = URL(string: "https://themealdb.com/api/json/v1/1/lookup.php?i=12345")
         XCTAssertEqual(endpoint.url, expectedURL)

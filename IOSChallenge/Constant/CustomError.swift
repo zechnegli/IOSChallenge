@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CustomError: LocalizedError {
+enum CustomError: LocalizedError,Equatable {
     case urlParseError(String)
     case networkError
     case decodingError

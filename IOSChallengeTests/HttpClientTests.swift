@@ -8,28 +8,6 @@
 import XCTest
 @testable import IOSChallenge
 
-class MockURLSession: URLSessionProtocol {
-    var nextDataTask = MockURLSessionDataTask()
-    var capturedRequest: URLRequest?
-    var stubbedData: Data?
-    var stubbedResponse: URLResponse?
-    var stubbedError: Error?
-    
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
-        capturedRequest = request
-        completionHandler(stubbedData, stubbedResponse, stubbedError)
-        return nextDataTask
-    }
-}
-
-class MockURLSessionDataTask: URLSessionDataTaskProtocol {
-    var resumeDidCall = false
-    
-    func resume() {
-        resumeDidCall = true
-    }
-}
-
 struct MockData {
     static let validResponseData = """
         [
@@ -68,7 +46,6 @@ class HttpClientTests: XCTestCase {
     }
     
     func testSendRequest_WithValidResponseData_ReturnsDecodedData() {
-        // Arrange
         let (sut, mockURLSession) = makeSUT()
         
         let responseData = MockData.validResponseData
@@ -76,12 +53,10 @@ class HttpClientTests: XCTestCase {
         
         let expectation = self.expectation(description: "Completion called with success")
         
-        // Act
         sut.sendRequest(url: URL(string: "https://example.com")!, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<[ResponseModel], Error>) in
-            // Assert
             switch result {
             case .success(let decodedData):
-                XCTAssertEqual(decodedData.count, 2) // Verify the decoded data
+                XCTAssertEqual(decodedData.count, 2)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail("Unexpected failure: \(error)")
@@ -100,9 +75,7 @@ class HttpClientTests: XCTestCase {
         
         let expectation = self.expectation(description: "Completion called with failure")
         
-        // Act
         sut.sendRequest(url: URL(string: "https://example.com")!, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<[ResponseModel], Error>) in
-            // Assert
             switch result {
             case .success:
                 XCTFail("Unexpected success")
@@ -114,9 +87,8 @@ class HttpClientTests: XCTestCase {
         
         waitForExpectations(timeout: 5.0, handler: nil)
     }
-    
+
     func testSendRequest_WithRetry_ReturnsSuccess() {
-        // Arrange
         let (sut, mockURLSession) = makeSUT()
         
         let responseData = MockData.validResponseData
@@ -128,12 +100,10 @@ class HttpClientTests: XCTestCase {
         
         let expectation = self.expectation(description: "Completion called with success")
         
-        // Act
         sut.sendRequest(url: URL(string: "https://example.com")!, method: .get, maxRetries: 3, retryDelay: 2.0) { (result: Result<[ResponseModel], Error>) in
-            // Assert
             switch result {
             case .success(let decodedData):
-                XCTAssertEqual(decodedData.count, 2) // Verify the decoded data
+                XCTAssertEqual(decodedData.count, 2)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail("Unexpected failure: \(error)")
@@ -145,8 +115,5 @@ class HttpClientTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0, handler: nil)
     }
-
-
-
 }
 
